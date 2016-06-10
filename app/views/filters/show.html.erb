@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @filter.name %>
+</p>
+
+<p>
+  <strong>Query:</strong>
+  <%= @filter.query %>
+</p>
+
+<p>
+  <strong>Operation:</strong>
+  <%= @filter.operation %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @filter.value %>
+</p>
+
+<%= link_to 'Use', search_path(@filter)  %> |
+<%= link_to 'Edit', edit_filter_path(@filter) %> |
+<%= link_to 'Back', filters_path %>

@@ -1,0 +1,34 @@
+<%= form_for(@filter) do |f| %>
+    <% if @filter.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@filter.errors.count, "error") %> prohibited this filter from being saved:</h2>
+
+          <ul>
+            <% @filter.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :query %><br>
+      <%= f.text_field :query %>
+    </div>
+    <div class="field">
+      <%= f.label :operation %><br>
+      <%= f.text_field :operation %>
+    </div>
+
+    <div class="field">
+      <%= f.label :value %><br>
+      <%= f.text_field :value %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
