@@ -21,10 +21,10 @@
     </div>
     <div class="field">
       <%= f.label :operation %><br>
-      <%= f.select :operation, options_for_select([%w(Like like), %w(Equals equals),
-                                                   %w(StartsWith starts_with), %w(EndsWith ends_with),
-                                                   %w(Lesser lesser), %w(LesserEquals lesser_equals),
-                                                   %w(Greater greater), %w(GreaterEquals greater_equals)]) %>
+      <%= f.select :operation, options_for_select([%w(Equals equals), %w(Lesser lesser), %w(LesserEquals lesser_equals),
+                                                   %w(Greater greater), %w(GreaterEquals greater_equals),
+                                                   %w(Like like),
+                                                   %w(StartsWith starts_with), %w(EndsWith ends_with)]) %>
       <!--<%= f.text_field :operation %>-->
     </div>
 
