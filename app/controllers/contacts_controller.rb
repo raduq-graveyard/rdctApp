@@ -11,7 +11,10 @@ class ContactsController < ApplicationController
   def search
     if params[:filter_id]
       @filter = Filter.find params[:filter_id]
-      @contacts = Contact.where define_query(@filter), define_value(@filter)
+
+      query = define_query(@filter)
+      value = define_value(@filter)
+      @contacts = Contact.where query, value
     else
       index
     end
@@ -73,26 +76,57 @@ class ContactsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_contact
-      @contact = Contact.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_contact
+    @contact = Contact.find(params[:id])
+  end
 
-    def define_query(filter)
-      if filter.operation == 'like'
-        filter.query + ' LIKE :like_name'
-      end
-    end
-
-  def define_value(filter)
-    if filter.operation == 'like'
-      like_value = filter.value
-      {:like_name => "%#{like_value}%" }
+  def define_query(filter)
+    upcase_filter = filter.operation.to_s.upcase
+    case upcase_filter
+      when 'LIKE'
+        return filter.query + ' LIKE :like_name'
+      when 'EQUALS'
+        return filter.query + ' = :like_name'
+      when 'STARTS_WITH'
+        return filter.query + ' LIKE :like_name'
+      when 'ENDS_WITH'
+        return filter.query + ' LIKE :like_name'
+      when 'GREATER'
+        return filter.query + ' > :like_name'
+      when 'GREATER_EQUALS'
+        return filter.query + ' >= :like_name'
+      when 'LESSER'
+        return filter.query + ' < :like_name'
+      when 'LESSER_EQUALS'
+        return filter.query + ' <= :like_name'
     end
   end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def contact_params
-      params.require(:contact).permit(:name, :mail, :age, :state, :role)
+  def define_value(filter)
+    upcase_filter = filter.operation.to_s.upcase
+    case upcase_filter
+      when 'LIKE'
+        return {:like_name => "%#{filter.value}%"}
+      when 'EQUALS'
+        return {:like_name => "#{filter.value}"}
+      when 'STARTS_WITH'
+        return {:like_name => "#{filter.value}%"}
+      when 'ENDS_WITH'
+        return {:like_name => "%#{filter.value}"}
+      when 'GREATER'
+        return {:like_name => "#{filter.value}"}
+      when 'GREATER_EQUALS'
+        return {:like_name => "#{filter.value}"}
+      when 'LESSER'
+        return {:like_name => "#{filter.value}"}
+      when 'LESSER_EQUALS'
+        return {:like_name => "#{filter.value}"}
     end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def contact_params
+    params.require(:contact).permit(:name, :mail, :age, :state, :role)
+  end
 end
