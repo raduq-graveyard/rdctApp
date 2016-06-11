@@ -1,9 +1,55 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  query: MyString
+  name: like_name_ohn
+  query: name
+  operation: like
+  value: ohn
 
 two:
-  name: MyString
-  query: MyString
+  name: equals_role_Developer
+  query: role
+  operation: equals
+  value: Developer
+
+three:
+  name: starts_with_mail_Jo
+  query: mail
+  operation: starts_with
+  value: Jo
+
+four:
+  name: ends_with_state_C
+  query: state
+  operation: ends_with
+  value: C
+
+five:
+  name: by_age_lesser_20
+  query: age
+  operation: lesser
+  value: 20
+
+six:
+  name: by_age_lesser_equals_10
+  query: age
+  operation: lesser_equals
+  value: 10
+
+seven:
+  name: by_age_greater_8
+  query: age
+  operation: greater
+  value: 8
+
+eight:
+  name: by_age_greater_equals_10
+  query: age
+  operation: greater_equals
+  value: 10
+
+nine:
+  name: by_age_equals_20
+  query: age
+  operation: equals
+  value: 20
