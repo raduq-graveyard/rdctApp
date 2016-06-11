@@ -3,7 +3,10 @@ class CreateFilters < ActiveRecord::Migration
     create_table :filters do |t|
       t.string :name
       t.string :query
-      .timestamps null: false
+      t.string :value
+      t.string :operation
+
+      t.timestamps
     end
   end
 end

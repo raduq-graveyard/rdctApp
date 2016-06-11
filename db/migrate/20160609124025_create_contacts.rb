@@ -7,7 +7,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :state
       t.string :role
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
