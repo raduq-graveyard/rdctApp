@@ -20,6 +20,7 @@
         <td><%= filter.query %></td>
         <td><%= filter.operation %></td>
         <td><%= filter.value %></td>
+        <td><%= link_to 'Use', search_path(filter) %></td>
         <td><%= link_to 'Show', filter %></td>
         <td><%= link_to 'Edit', edit_filter_path(filter) %></td>
         <td><%= link_to 'Destroy', filter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
