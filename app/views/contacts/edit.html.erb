@@ -1,6 +1,19 @@
-<h1>Editing Contact</h1>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title"><i class="material-icons md-36">face</i> Editar Contato</span>
+      <div class="mdl-layout-spacer"></div>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <p id="notice"><%= notice %></p>
 
-<%= render 'form' %>
+      <%= render 'form' %>
 
-<%= link_to 'Show', @contact %> |
-<%= link_to 'Back', contacts_path %>
+      <%= link_to 'Detalhes', @contact,  class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+      <%= link_to 'Voltar', contacts_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+
+    </div>
+  </main>
+</div>

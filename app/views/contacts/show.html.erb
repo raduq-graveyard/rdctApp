@@ -1,29 +1,56 @@
-<p id="notice"><%= notice %></p>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title"><i class="material-icons md-36">face</i> Contato</span>
+      <div class="mdl-layout-spacer"></div>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @contact.name %>
-</p>
+      <div class="tiny mdl-card">
+        <div class="mdl-card__supporting-text">Nome</div>
+        <div class="mdl-card__title">
+          <h6 class="mdl-card__title-text"><%= @contact.name %></h6>
+        </div>
+      </div>
 
-<p>
-  <strong>Mail:</strong>
-  <%= @contact.mail %>
-</p>
+      <div class="tiny mdl-card">
+        <div class="mdl-card__supporting-text">Email</div>
+        <div class="mdl-card__title">
+          <h6 class="mdl-card__title-text"><%= @contact.mail %></h6>
+        </div>
+      </div>
 
-<p>
-  <strong>Age:</strong>
-  <%= @contact.age %>
-</p>
+      <div class="tiny mdl-card">
+        <div class="mdl-card__supporting-text">Idade</div>
+        <div class="mdl-card__title">
+          <h6 class="mdl-card__title-text"><%= @contact.age %></h6>
+        </div>
+      </div>
 
-<p>
-  <strong>State:</strong>
-  <%= @contact.state %>
-</p>
+      <br/>
 
-<p>
-  <strong>Role:</strong>
-  <%= @contact.role %>
-</p>
+      <div class="tiny mdl-card">
+        <div class="mdl-card__supporting-text">Estado</div>
+        <div class="mdl-card__title">
+          <h6 class="mdl-card__title-text"><%= @contact.state %></h6>
+        </div>
+      </div>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+      <div class="tiny mdl-card">
+        <div class="mdl-card__supporting-text">Cargo</div>
+        <div class="mdl-card__title">
+          <h6 class="mdl-card__title-text"><%= @contact.role %></h6>
+        </div>
+      </div>
+
+      <br/>
+
+      <%= link_to 'Editar', edit_contact_path(@contact), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+      <%= link_to 'Voltar', contacts_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+
+    </div>
+  </main>
+</div>

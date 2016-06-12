@@ -11,28 +11,29 @@
         </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :query %><br>
-      <%= f.text_field :query %>
-    </div>
-    <div class="field">
-      <%= f.label :operation %><br>
-      <%= f.select :operation, options_for_select([%w(Equals equals), %w(Lesser lesser), %w(LesserEquals lesser_equals),
-                                                   %w(Greater greater), %w(GreaterEquals greater_equals),
-                                                   %w(Like like),
-                                                   %w(StartsWith starts_with), %w(EndsWith ends_with)]) %>
-      <!--<%= f.text_field :operation %>-->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= label_tag :name, 'Nome', class: "mdl-textfield__label" %><br>
+      <%= f.text_field  :name, class: "mdl-textfield__input" %>
     </div>
 
-    <div class="field">
-      <%= f.label :value %><br>
-      <%= f.text_field :value %>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= label_tag :query, 'Coluna', class: "mdl-textfield__label" %><br>
+      <%= f.text_field  :query, class: "mdl-textfield__input" %>
     </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= label_tag :query, 'Operação', class: "mdl-textfield__label" %><br>
+      <%= f.select :operation, options_for_select([%w(Igual equals), %w(Menor lesser), %w(MenorIgual lesser_equals),
+                                                   %w(Maior greater), %w(MaiorIgual greater_equals),
+                                                   %w(Contem like),
+                                                   %w(ComeçaCom starts_with), %w(TerminaCom ends_with)]) %>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= label_tag :value, 'Valor', class: "mdl-textfield__label" %><br>
+      <%= f.text_field  :value, class: "mdl-textfield__input" %>
+    </div>
+
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Salvar', class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
     </div>
 <% end %>

@@ -31,6 +31,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'passenger'
 
+gem 'material_icons'
+gem 'material_design_lite-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

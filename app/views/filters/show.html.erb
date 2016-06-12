@@ -1,25 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title"><i class="material-icons md-36">search</i> Filtro</span>
+      <div class="mdl-layout-spacer"></div>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @filter.name %>
-</p>
+      <div class="tiny mdl-card">
+        <div class="mdl-card__supporting-text">Nome</div>
+        <div class="mdl-card__title">
+          <h4 class="mdl-card__title-text"><%= @filter.name %></h4>
+        </div>
+      </div>
 
-<p>
-  <strong>Query:</strong>
-  <%= @filter.query %>
-</p>
+      <div class="tiny mdl-card">
+        <div class="mdl-card__supporting-text">Coluna</div>
+        <div class="mdl-card__title">
+          <h4 class="mdl-card__title-text"><%= @filter.query %></h4>
+        </div>
+      </div>
 
-<p>
-  <strong>Operation:</strong>
-  <%= @filter.operation %>
-</p>
+      <div class="tiny mdl-card">
+        <div class="mdl-card__supporting-text">Operação</div>
+        <div class="mdl-card__title">
+          <h4 class="mdl-card__title-text"><%= @filter.operation %></h4>
+        </div>
+      </div>
 
-<p>
-  <strong>Value:</strong>
-  <%= @filter.value %>
-</p>
+      <div class="tiny mdl-card">
+        <div class="mdl-card__supporting-text">Valor</div>
+        <div class="mdl-card__title">
+          <h4 class="mdl-card__title-text"><%= @filter.value %></h4>
+        </div>
+      </div>
 
-<%= link_to 'Use', search_path(@filter)  %> |
-<%= link_to 'Edit', edit_filter_path(@filter) %> |
-<%= link_to 'Back', filters_path %>
+      <%= link_to 'Usar', search_path(@filter), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+      <%= link_to 'Editar', edit_filter_path(@filter), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+      <%= link_to 'Voltar', filters_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+
+    </div>
+  </main>
+</div>

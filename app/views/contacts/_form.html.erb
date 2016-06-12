@@ -1,37 +1,45 @@
 <%= form_for(@contact) do |f| %>
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+    <% if @contact.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
-      <ul>
-      <% @contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @contact.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= label_tag :name, 'Nome', class: "mdl-textfield__label" %><br>
+      <%= f.text_field  :name, class: "mdl-textfield__input" %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :mail %><br>
-    <%= f.text_field :mail %>
-  </div>
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :role %><br>
-    <%= f.text_field :role %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= label_tag :mail, 'Email', class: "mdl-textfield__label" %><br>
+      <%= f.text_field  :mail, class: "mdl-textfield__input" %>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= label_tag :age, 'Idade', class: "mdl-textfield__label" %><br>
+      <%= f.number_field :age, class: "mdl-textfield__input" %>
+      <span class="mdl-textfield__error">O campo idade aceita somente numeros.</span>
+    </div>
+
+    <br/>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= label_tag :state, 'Estado', class: "mdl-textfield__label" %><br>
+      <%= f.text_field  :state, class: "mdl-textfield__input" %>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= label_tag :role, 'Cargo', class: "mdl-textfield__label" %><br>
+      <%= f.text_field  :role, class: "mdl-textfield__input" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Salvar', class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
+    </div>
 <% end %>

@@ -1,37 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title"><i class="material-icons md-36">search</i> Contatos filtrados</span>
+      <div class="mdl-layout-spacer"></div>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <p id="notice"><%= notice %></p>
 
-<h1>Searched Contacts</h1>
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Nome</th>
+          <th class="mdl-data-table__cell--non-numeric">Email</th>
+          <th>Idade</th>
+          <th class="mdl-data-table__cell--non-numeric">Estado</th>
+          <th class="mdl-data-table__cell--non-numeric">Cargo</th>
+        </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Mail</th>
-      <th>Age</th>
-      <th>State</th>
-      <th>Role</th>
-      <th colspan="6"></th>
-    </tr>
-  </thead>
+        <tbody>
+        <% @contacts.each do |contact| %>
+            <tr>
+              <td><%= contact.name %></td>
+              <td><%= contact.mail %></td>
+              <td><%= contact.age %></td>
+              <td><%= contact.state %></td>
+              <td><%= contact.role %></td>
+              <td><%= link_to 'Detalhes', contact %></td>
+              <td><%= link_to 'Editar', edit_contact_path(contact) %></td>
+              <td><%= link_to 'Apagar', contact, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
 
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.name %></td>
-        <td><%= contact.mail %></td>
-        <td><%= contact.age %></td>
-        <td><%= contact.state %></td>
-        <td><%= contact.role %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <br>
 
-<br>
+      <%= link_to 'Novo Contato', new_contact_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
+      <%= link_to 'Filtros', filters_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+      <%= link_to 'Contatos', contacts_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
 
-<%= link_to 'New Contact', new_contact_path %> |
-<%= link_to 'Filters', filters_path %> |
-<%= link_to 'All Contacts', contacts_path %>
+    </div>
+  </main>
+</div>
+
+
+
