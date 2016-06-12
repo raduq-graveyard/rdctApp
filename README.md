@@ -1,5 +1,3 @@
-## README
-
 #### Ruby version
 * 2.2
 
@@ -23,7 +21,4 @@ I've configured the database.yml to the following configurations:
 * password: admin
 
 If your postgres have's another configuration you'll need to change this file.
-
-#### How to run the test suite
-* TODO
 
